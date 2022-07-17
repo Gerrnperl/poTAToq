@@ -80,19 +80,23 @@ export class Game {
                     break;
             }
         });
-        document.addEventListener("touchstart", (e) => {
+        let touchEvent = (e) => {
             if (!this.started) {
                 return;
             }
+            e.preventDefault();
             let x = e.touches[0].clientX;
             let y = e.touches[0].clientY;
             let currentX = this.player.x.v;
             let currentY = this.player.y.v;
             let deltaX = x - currentX;
             let deltaY = y - currentY;
-            if (Math.abs(deltaX) < 5 && Math.abs(deltaY) < 5) {
+            if (Math.abs(deltaX) < this.player.w.v && Math.abs(deltaY) < this.player.h.v) {
+                console.log(deltaX, deltaY);
                 this.player.vx = 0;
                 this.player.vy = 0;
+                this.player.ax = 0;
+                this.player.ay = 0;
                 return;
             }
             let k = 3 / Math.sqrt(deltaX ** 2 + deltaY ** 2);
@@ -100,11 +104,14 @@ export class Game {
             this.player.vy = k * deltaY;
             this.player.ax = 0;
             this.player.ay = 0;
-        }, false);
+        };
+        document.addEventListener("touchstart", touchEvent, { passive: false });
+        document.addEventListener("touchmove", touchEvent, { passive: false });
         document.addEventListener("touchend", (e) => {
             if (!this.started) {
                 return;
             }
+            e.preventDefault();
             this.player.vx = 0;
             this.player.vy = 0;
             this.player.ax = 0;
@@ -136,6 +143,18 @@ export class Game {
         this.background.y.v = containerHeight / 2 - this.background.h.v / 2;
     }
     update(timeStamp) {
+        if (this.player.x.v > this.container.offsetWidth - this.player.w.v) {
+            this.player.x.v = this.container.offsetWidth - this.player.w.v;
+        }
+        if (this.player.x.v < 0) {
+            this.player.x.v = 0;
+        }
+        if (this.player.y.v > this.container.offsetHeight - this.player.h.v) {
+            this.player.y.v = this.container.offsetHeight - this.player.h.v;
+        }
+        if (this.player.y.v < 0) {
+            this.player.y.v = 0;
+        }
         if (timeStamp !== undefined && timeStamp - this.timeStamp < 500) {
             requestAnimationFrame(this.update.bind(this));
             return;
