@@ -138,7 +138,7 @@ export class Game {
 				this.player.ay = 0;
 				return;
 			}
-			let k = 3 / Math.sqrt(deltaX ** 2 + deltaY ** 2)
+			let k = 6 / Math.sqrt(deltaX ** 2 + deltaY ** 2)
 			this.player.vx = k * deltaX;
 			this.player.vy = k * deltaY;
 			this.player.ax = 0;
