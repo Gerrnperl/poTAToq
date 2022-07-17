@@ -1,0 +1,151 @@
+@font-face {
+	font-family: 'Potato';
+	src: url(../font/PotatoChips-jEEOy.ttf) format('truetype');
+}
+ * {
+ 	margin: 0;
+ 	padding: 0;
+ 	box-sizing: border-box;
+ }
+
+ body {
+ 	overflow: hidden;
+	font-family: 'Potato', 'Roboto', sans-serif;
+ }
+
+ #container {
+ 	width: 100vw;
+ 	height: 100vh;
+ }
+
+ canvas {
+ 	position: absolute;
+ 	left: 0;
+ 	top: 0;
+ }
+ .ui {
+    width: 100%;
+    height: 100%;
+	top: 0;
+}
+
+
+ #ui-menu {
+ 	position: absolute;
+ 	display: flex;
+ 	z-index: 10;
+ 	flex-direction: column;
+ 	align-content: center;
+ 	align-items: center;
+ 	justify-content: center;
+ 	height: 100%;
+ }
+ #title{
+	margin: 20px;
+ }
+ #title h1 {
+    font-size: 13vw;
+    display: flex;
+    color: #E3B163;
+    text-shadow: 0px 1.5vw 0px #662f0a;
+    user-select: all;
+    transition: all 0.3s ease;
+    font-weight: 100;
+    animation: wave 3s ease infinite;
+}
+
+#title h1 span::selection {
+    background: transparent;
+    color: red;
+    /* text-shadow: 0px -20px 20px black; */
+	animation: wave2 3s ease infinite;
+}
+
+
+.menu-button {
+	margin: 10px;
+}
+button {
+	user-select: none;
+    background: transparent;
+    outline: none;
+    border: none;
+    font-family: 'Potato';
+    font-weight: 100;
+    font-size: 4vw;
+    color: #E3B163;
+    text-shadow: 0px 0rem 0px #662f0a;
+    border: 5px double #662f0a;
+    border-radius: 5px;
+    width: 25vw;
+	padding: 5px 5px 1px 5px;
+    line-height: 100%;
+}
+div#ui-play {
+    z-index: 11;
+    position: absolute;
+    display: none;
+    width: 100%;
+    padding: 10px;
+	justify-content: space-between;
+}
+
+#blood {
+	font-size: 1.75rem;
+}
+
+div#score-conatiner {
+    font-size: 2rem;
+    color: #e3b163;
+    text-shadow: 0 5px #662f0a;
+}
+
+span#score {
+    font-size: 2.25rem;
+}
+  
+div#ui-gameover {
+	position: absolute;
+	z-index: 11;
+	top: 0;
+	display: none;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	text-align: center;
+  }
+  
+div#gameover-container {
+	font-size: 2rem;
+}
+
+
+div#gameover-container {
+  color: #E3B163;
+  text-shadow: 0 5px #662f0a;
+}
+
+
+h1 {
+  font-weight: 100;
+}
+
+button#restart {
+    margin: 20px;
+}
+
+
+
+@keyframes wave {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(10px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}

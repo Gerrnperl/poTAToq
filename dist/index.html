@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./style/main.css">
+</head>
+<body>
+	<div class="ui" id="ui-menu">
+		<!-- include a title picture, a start game button, a record button, a setting button-->
+		<div id="title">
+			<h1>
+				<span>p</span>
+				<span>o</span>
+				<span>T</span>
+				<span>A</span>
+				<span>T</span>
+				<span>o</span>
+				<span>q</span>
+			</h1>
+		</div>
+		<div class="menu-button" id="start">
+			<button id="start-button">START</button>
+		</div>
+	</div>
+	<div class="ui" id="ui-play">
+		<div id="blood"></div>
+		<div id="score-conatiner"><span class="label">SCORE: </span><span id="score">0</span></div>
+	</div>
+	<div class="ui" id="ui-gameover">
+		<div id="gameover-container">
+			<h1>GAME OVER</h1>
+			<div id="final-score-container"><span class="label">SCORE: </span><span id="final-score">0</span></div>
+			<button id="restart">RESTART</button>
+		</div>
+	</div>
+	<div id="container">
+	</div>
+	<script type="module" src="./script/index.js"></script>
+</body>
+</html>
