@@ -6,6 +6,7 @@
  	margin: 0;
  	padding: 0;
  	box-sizing: border-box;
+	user-select: none;
  }
 
  body {
@@ -53,7 +54,9 @@
     font-weight: 100;
     animation: wave 3s ease infinite;
 }
-
+#title h1 span{
+	user-select: all;
+}
 #title h1 span::selection {
     background: transparent;
     color: red;
@@ -72,13 +75,13 @@ button {
     border: none;
     font-family: 'Potato';
     font-weight: 100;
-    font-size: 4vw;
+    font-size: 2rem;
     color: #E3B163;
     text-shadow: 0px 0rem 0px #662f0a;
     border: 5px double #662f0a;
     border-radius: 5px;
-    width: 25vw;
-	padding: 5px 5px 1px 5px;
+    width: auto;
+	padding: 5px 10px 1px 10px;
     line-height: 100%;
 }
 div#ui-play {
