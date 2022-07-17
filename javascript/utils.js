@@ -1,12 +1,17 @@
 let presentRefer = {
     _ZERO: 0,
 };
+let textures = {};
 export function setPresentationReference(name, number) {
     presentRefer[name] = number;
 }
 export function loadTexture(url) {
+    if (textures[url]) {
+        return textures[url];
+    }
     let img = new Image();
     img.src = url;
+    textures[url] = img;
     return img;
 }
 export class Percent {

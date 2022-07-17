@@ -4,6 +4,7 @@ interface Reference {
 let presentRefer:Reference = {
 	_ZERO: 0,
 };
+let textures = {} as {[key: string]: HTMLImageElement};
 
 export function setPresentationReference(name: string, number: number) {
 	presentRefer[name] = number;
@@ -11,8 +12,12 @@ export function setPresentationReference(name: string, number: number) {
 
 // load texture
 export function loadTexture(url:string):HTMLImageElement{
+	if(textures[url]){
+		return	textures[url];
+	}
 	let img = new Image();
 	img.src = url;
+	textures[url] = img;
 	return img;
 }
 
