@@ -17,6 +17,9 @@ let uiGameOver = document.querySelector("#ui-gameover") as HTMLElement;
 uiGameOver?.querySelector("#restart")?.addEventListener("click", ()=>{
 	location.reload();
 });
+uiGameOver?.querySelector("#restart")?.addEventListener("touchstart", ()=>{
+	location.reload();
+});
 
 export let score = 0;
 export function addScore(value:number){

@@ -1,4 +1,4 @@
-var _a;
+var _a, _b;
 import { Game } from "./game.js";
 let container = document.querySelector("#container");
 container.innerHTML = '';
@@ -12,6 +12,9 @@ let scorePanel = document.querySelector("#score");
 let bloodPanel = document.querySelector("#blood");
 let uiGameOver = document.querySelector("#ui-gameover");
 (_a = uiGameOver === null || uiGameOver === void 0 ? void 0 : uiGameOver.querySelector("#restart")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+    location.reload();
+});
+(_b = uiGameOver === null || uiGameOver === void 0 ? void 0 : uiGameOver.querySelector("#restart")) === null || _b === void 0 ? void 0 : _b.addEventListener("touchstart", () => {
     location.reload();
 });
 export let score = 0;
